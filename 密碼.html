@@ -8,6 +8,30 @@
 </head>
 <body>
   <script>
+    const inputtext=prompt('text').toUpperCase()
+  const inputkey=parseInt(prompt('key'))
+
+  const encrypt=(text,key)=>{
+    let result=''
+    //迴圈處理每個文字
+    for(let i=0;i<text.lenght;i++){
+      //取得文字ASCII Code
+      let code=text.chartCodeAt(i)
+      //如果不是空白
+      if(code!==32){
+      code=(code-65+key)%26+65
+      //計算新的ASCII Code
+      result+=String.fromCharCode(code)
+      //新的ASCII Code轉回文字串起來
+      }else{
+        result+=''
+      }
+    }
+    return result
+  }
+
+  document.write(encrypt(inputtext,inputkey))
+
   </script>
 </body>
 </html>

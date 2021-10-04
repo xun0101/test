@@ -1,0 +1,54 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <meta http-equiv="X-UA-Compatible" content="ie=edge">
+  <title>Document</title>
+</head>
+<body>
+  <script>
+  const rand=(min,max)=>{
+    return Math.round(Math.random()*(max-min))+min
+  }
+  // const groupA=[] 方法一
+  // for(let i=0;i<6;i++){
+    //隨機取一個球
+  //   const num=rand(1,38)
+  //   if(groupA.includes(num)){
+    //如果重複，這個迴圈再跑一次
+  //   i--
+  //   }else{
+    //沒重複放進A組陣列
+  //     groupA.push(rand(num))
+  //   }
+  // }
+
+  // while(groupA.length<6){ 方法2
+  //隨機取一個數
+  //   const num=rand(1,38)
+  //不重複就放入陣列
+  //   if(groupA.includes(num)){
+  //     groupA.push(num)
+  //   }
+  // }
+
+  //建立一個威力彩球池
+  const numbers=[]
+  //放入38顆球
+  for(let i=1;i<=38;i++){
+    numbers.push(i)
+  }
+  //從球池取6顆球
+  for(i=0;i<6;i++){
+    //隨機從數字球池取一個索引
+    const index = rand(0,numbers.length-1)
+    //將取到的索引對應的值放入A組陣列
+    groupA.push(numbers[index])
+    //將取到的值移出球池
+    numbers.splice(index,1)
+  }
+  document.write(groupA.join(','))
+  </script>
+</body>
+</html>
